@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Mantra — Account and Data Deletion</title>
+  <meta
+    name="description"
+    content="Instructions for deleting your Daily Mantra account and associated data."
+  />
+
+  <style>
+    :root {
+      --bg: #faf6f2;
+      --surface: #ffffff;
+      --surface-soft: #f4eee8;
+      --ink: #2e2a36;
+      --ink-muted: #635c6b;
+      --line: #e8ded4;
+      --petal: #c96f8f;
+      --petal-soft: #f8dce7;
+      --sage: #6f8f72;
+      --sage-soft: #e2eddf;
+      --honey: #c89a45;
+      --honey-soft: #f8e7bd;
+      --shadow: rgba(46, 42, 54, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(248, 220, 231, 0.8), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(226, 237, 223, 0.9), transparent 32rem),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .page {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 48px var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      padding: 42px 36px 34px;
+      background:
+        linear-gradient(135deg, rgba(248, 220, 231, 0.95), rgba(226, 237, 223, 0.88)),
+        var(--surface-soft);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink-muted);
+      font-size: 0.88rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .flower {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--petal);
+      box-shadow:
+        8px 0 0 var(--honey),
+        4px 7px 0 var(--sage),
+        -4px 7px 0 var(--petal),
+        -8px 0 0 var(--sage);
+      display: inline-block;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      max-width: 680px;
+      color: var(--ink-muted);
+      font-size: 1.08rem;
+    }
+
+    main {
+      padding: 34px 36px 40px;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    section:first-child {
+      margin-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ol,
+    ul {
+      margin: 14px 0 0;
+      padding-left: 1.4rem;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .info-box {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: var(--surface-soft);
+    }
+
+    .deleted-data {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .deleted-data li {
+      margin: 0;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      border: 1px solid var(--line);
+    }
+
+    .email-card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--honey-soft), #fff8e8);
+      border: 1px solid rgba(200, 154, 69, 0.28);
+    }
+
+    .email-card strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    a {
+      color: #8f4260;
+      font-weight: 700;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--petal);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 750;
+      box-shadow: 0 10px 24px rgba(201, 111, 143, 0.25);
+    }
+
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--ink-muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 920px);
+        padding: 20px 0;
+      }
+
+      .hero,
+      main {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      main {
+        padding-bottom: 30px;
+      }
+
+      .email-card {
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <article class="card">
+      <header class="hero">
+        <div class="brand-pill">
+          <span class="flower" aria-hidden="true"></span>
+          Lunara Apps
+        </div>
+
+        <h1>Daily Mantra — Account and Data Deletion</h1>
+
+        <p class="subtitle">
+          This page explains how to delete your Daily Mantra account and what
+          happens to the data associated with it.
+        </p>
+      </header>
+
+      <main>
+        <section aria-labelledby="developer">
+          <h2 id="developer">About Daily Mantra</h2>
+          <p>
+            Daily Mantra is developed by <strong>Lunara Apps</strong>.
+          </p>
+        </section>
+
+        <section aria-labelledby="delete-in-app">
+          <h2 id="delete-in-app">How to delete your account in the app</h2>
+          <p>
+            You can delete your Daily Mantra account directly inside the app:
+          </p>
+
+          <ol>
+            <li>Open <strong>Daily Mantra</strong>.</li>
+            <li>Go to <strong>You / Settings</strong>.</li>
+            <li>Open the account or legal section.</li>
+            <li>Tap <strong>Delete account</strong>.</li>
+            <li>Follow the confirmation and re-authentication steps.</li>
+          </ol>
+        </section>
+
+        <section aria-labelledby="deleted-data">
+          <h2 id="deleted-data">Data deleted with your account</h2>
+          <p>
+            When you delete your account, Daily Mantra deletes the data associated
+            with your account, including:
+          </p>
+
+          <ul class="deleted-data">
+            <li>Your app account</li>
+            <li>Your saved mantra</li>
+            <li>Your streak and progress</li>
+            <li>Your garden and inventory data</li>
+            <li>Your reminder and settings sync data</li>
+            <li>Your cloud-synced Daily Mantra data associated with your account</li>
+          </ul>
+
+          <div class="info-box">
+            <p>
+              Some data may be retained only when required for legal, security,
+              fraud-prevention, or abuse-prevention reasons.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="email-request">
+          <h2 id="email-request">Request deletion by email</h2>
+          <p>
+            If you cannot access the app, you can request account deletion by email.
+          </p>
+
+          <div class="email-card">
+            <div>
+              <strong>Contact email</strong>
+              <a href="mailto:lunara.apps+mantra@gmail.com">
+                lunara.apps+mantra@gmail.com
+              </a>
+            </div>
+
+            <a class="button" href="mailto:lunara.apps+mantra@gmail.com?subject=Daily%20Mantra%20Account%20Deletion%20Request">
+              Request deletion
+            </a>
+          </div>
+
+          <p class="info-box">
+            Please contact us from the email address associated with your
+            Daily Mantra account, if possible. This helps us verify the request
+            and process it correctly.
+          </p>
+        </section>
+      </main>
+    </article>
+
+    <footer class="footer">
+      © Lunara Apps · Daily Mantra
+    </footer>
+  </div>
+</body>
+</html>
