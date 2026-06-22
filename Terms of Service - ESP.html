@@ -1,214 +1,340 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Términos de servicio – Daily Mantra</title>
+  <title>Términos de servicio – Mantra Helper</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
-      background: #f8f7fb;
-      color: #333;
+    :root {
+      --bg: #f8f3fb;
+      --bg-soft: #fffaf4;
+      --card: #ffffff;
+      --primary: #6f4ca3;
+      --primary-soft: #efe6fb;
+      --primary-dark: #4d3477;
+      --accent: #d99a63;
+      --text: #2f2938;
+      --muted: #6f6878;
+      --line: #eadff1;
+      --shadow: 0 18px 45px rgba(74, 49, 104, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 24px;
-      background: white;
-      min-height: 100vh;
+    * {
       box-sizing: border-box;
     }
 
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(217, 154, 99, 0.22), transparent 34rem),
+        radial-gradient(circle at top right, rgba(111, 76, 163, 0.18), transparent 30rem),
+        linear-gradient(180deg, var(--bg), var(--bg-soft));
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(234, 223, 241, 0.9);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 42px 36px 34px;
+      background:
+        linear-gradient(135deg, rgba(111, 76, 163, 0.12), rgba(217, 154, 99, 0.12)),
+        #ffffff;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .badge::before {
+      content: "✦";
+      color: var(--accent);
+    }
+
     h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #5f4b8b;
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      color: var(--primary-dark);
+      letter-spacing: -0.04em;
     }
 
-    h2 {
-      margin-top: 2rem;
-      color: #5f4b8b;
-    }
-
-    p, li {
-      font-size: 1rem;
-    }
-
-    ul {
-      padding-left: 1.5rem;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #ddd;
-      margin: 2rem 0;
+    .subtitle {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
 
     .updated {
-      color: #666;
-      margin-bottom: 2rem;
+      margin-top: 22px;
+      display: inline-block;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .content {
+      padding: 34px 36px 42px;
+    }
+
+    .section {
+      padding: 24px;
+      margin: 0 0 18px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--primary);
+      font-size: 1.35rem;
+      line-height: 1.3;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .intro {
+      font-size: 1.02rem;
+      color: var(--muted);
     }
 
     .contact {
-      margin-top: 2rem;
-      padding: 16px;
-      background: #f3f0fa;
-      border-radius: 12px;
+      margin-top: 10px;
+      padding: 18px;
+      background: linear-gradient(135deg, var(--primary-soft), #fff7ef);
+      border: 1px solid rgba(111, 76, 163, 0.16);
+      border-radius: var(--radius-md);
+    }
+
+    .contact a {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-decoration: none;
       word-break: break-word;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 24px 18px;
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 20px 12px;
       }
 
-      h1 {
-        font-size: 1.6rem;
+      .container {
+        border-radius: 22px;
+      }
+
+      .hero,
+      .content {
+        padding: 26px 18px;
+      }
+
+      .section {
+        padding: 18px;
+        border-radius: 16px;
       }
 
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.18rem;
       }
     }
   </style>
+
 </head>
 
 <body>
-  <div class="container">
+  <main class="page">
+    <div class="container">
+      <header class="hero">
+        <div class="badge">Mantra Helper</div>
+        <h1>Términos de servicio</h1>
+        <p class="subtitle">
+          Al usar Mantra Helper, aceptas estos Términos.
+        </p>
+        <p class="updated"><strong>Última actualización:</strong> 05/05/2026</p>
+      </header>
 
-    <h1>Términos de servicio – Daily Mantra</h1>
-
-    <p class="updated"><strong>Última actualización:</strong> 05/05/2026</p>
-
-    <p>
-      Al usar Daily Mantra, aceptas estos Términos.
-    </p>
-
-    <hr />
-
-    <h2>1. Propósito de la app</h2>
-
-    <p>
-      Daily Mantra es una herramienta de superación personal y motivación diseñada para ayudar a los usuarios a desarrollar hábitos positivos.
-    </p>
-
-    <hr />
-
-    <h2>2. Sin asesoramiento médico</h2>
-
-    <p>
-      Daily Mantra NO es un servicio médico ni psicológico.
-    </p>
-
-    <p>No reemplaza:</p>
-
-    <ul>
-      <li>terapia</li>
-      <li>tratamiento médico</li>
-      <li>asesoramiento profesional</li>
-    </ul>
-
-    <hr />
-
-    <h2>3. Responsabilidad del usuario</h2>
-
-    <p>Eres responsable de:</p>
-
-    <ul>
-      <li>el contenido que ingresas (mantras)</li>
-      <li>cómo usas la app</li>
-    </ul>
-
-    <hr />
-
-    <h2>4. Cuenta</h2>
-
-    <p>Puedes usar:</p>
-
-    <ul>
-      <li>una cuenta anónima</li>
-      <li>inicio de sesión con Google o correo electrónico</li>
-    </ul>
-
-    <p>
-      Eres responsable de mantener el acceso a tu cuenta.
-    </p>
-
-    <hr />
-
-    <h2>5. Artículos virtuales</h2>
-
-    <p>
-      Los tokens, las rachas y los artículos virtuales:
-    </p>
-
-    <ul>
-      <li>no tienen valor en el mundo real</li>
-      <li>no pueden transferirse ni reembolsarse</li>
-    </ul>
-
-    <hr />
-
-    <h2>6. Anuncios</h2>
-
-    <p>
-      La app puede mostrar anuncios mediante Google AdMob.
-    </p>
-
-    <hr />
-
-    <h2>7. Terminación</h2>
-
-    <p>Nos reservamos el derecho de:</p>
-
-    <ul>
-      <li>suspender el acceso en caso de uso indebido</li>
-      <li>modificar o descontinuar la app</li>
-    </ul>
-
-    <hr />
-
-    <h2>8. Limitación de responsabilidad</h2>
-
-    <p>No somos responsables de:</p>
-
-    <ul>
-      <li>resultados emocionales</li>
-      <li>uso indebido de la app</li>
-      <li>pérdida de datos fuera de nuestro control</li>
-    </ul>
-
-    <hr />
-
-    <h2>9. Cambios</h2>
-
-    <p>
-      Podemos actualizar estos Términos en cualquier momento.
-    </p>
-
-    <hr />
-
-    <h2>10. Ley aplicable</h2>
-
-    <p>
-      Estos Términos se rigen por las leyes de Italia / Unión Europea.
-    </p>
-
-    <hr />
-
-    <h2>11. Contacto</h2>
-
-    <div class="contact">
-      <p>
-        lunara.apps+mantra@gmail.com
+  <div class="content">
+    <section class="section">
+      <p class="intro">
+        Mantra Helper está diseñada como una compañía motivacional simple para apoyar el crecimiento personal, la reflexión diaria y la creación de hábitos positivos.
       </p>
-    </div>
+    </section>
 
+    <section class="section">
+      <h2>1. Propósito de la app</h2>
+      <p>
+        Mantra Helper es una herramienta de superación personal y motivación diseñada para ayudar a los usuarios a desarrollar hábitos positivos.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>2. Sin asesoramiento médico</h2>
+      <p>
+        Mantra Helper NO es un servicio médico ni psicológico.
+      </p>
+
+      <p>No reemplaza:</p>
+      <ul>
+        <li>terapia</li>
+        <li>tratamiento médico</li>
+        <li>asesoramiento profesional</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>3. Responsabilidad del usuario</h2>
+      <p>Eres responsable de:</p>
+      <ul>
+        <li>el contenido que ingresas, incluidos los mantras personales</li>
+        <li>cómo usas la app</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>4. Cuenta</h2>
+      <p>Puedes usar:</p>
+      <ul>
+        <li>una cuenta anónima</li>
+        <li>inicio de sesión con Google o correo electrónico</li>
+      </ul>
+
+      <p>
+        Eres responsable de mantener el acceso a tu cuenta.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>5. Artículos virtuales</h2>
+      <p>
+        Los tokens, las rachas y los artículos virtuales:
+      </p>
+      <ul>
+        <li>no tienen valor en el mundo real</li>
+        <li>no pueden transferirse ni reembolsarse</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>6. Anuncios</h2>
+      <p>
+        La app puede mostrar anuncios mediante Google AdMob.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>7. Terminación</h2>
+      <p>Nos reservamos el derecho de:</p>
+      <ul>
+        <li>suspender el acceso en caso de uso indebido</li>
+        <li>modificar o descontinuar la app</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>8. Limitación de responsabilidad</h2>
+      <p>No somos responsables de:</p>
+      <ul>
+        <li>resultados emocionales</li>
+        <li>uso indebido de la app</li>
+        <li>pérdida de datos fuera de nuestro control</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>9. Cambios</h2>
+      <p>
+        Podemos actualizar estos Términos en cualquier momento.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>10. Ley aplicable</h2>
+      <p>
+        Estos Términos se rigen por las leyes de Italia y de la Unión Europea.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>11. Contacto</h2>
+      <div class="contact">
+        <p>Para cualquier pregunta, contáctanos en:</p>
+        <p>
+          <a href="mailto:lunara.apps+mantra@gmail.com">lunara.apps+mantra@gmail.com</a>
+        </p>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      © Mantra Helper
+    </p>
   </div>
+</div>
+
+  </main>
 </body>
 </html>
